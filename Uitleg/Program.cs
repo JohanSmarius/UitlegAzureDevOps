@@ -11,6 +11,10 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// Deze stap moet altijd na de Build aanroep.
+// Hiermee kun je automatisch de migraties uit laten voeren die opgenomen
+// zijn in je project. Je moet natuurlijk nog wel de migraties eerst
+// aanmaken en de db connectiestring opnemen in je appSettings.Production.json
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
